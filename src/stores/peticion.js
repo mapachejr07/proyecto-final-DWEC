@@ -2,13 +2,13 @@ import { ref } from "vue";
 import axios from "axios";
 import { defineStore } from "pinia";
 
-export const userRickStore = defineStore('counter', () => {
-  const lista_personajes = ref([])
+export const userTareasStore = defineStore('counter', () => {
+  const lista_tareas = ref([])
 
   const getData = async () => {
-    const resultado = await axios.get('https://rickandmortyapi.com/api/character')
-    lista_personajes.value = resultado.data.results
+    const resultado = await axios.get('https://dummyjson.com/todos')
+    lista_tareas.value = resultado.data.todos
   }
-  return{getData, lista_personajes}
+  return {getData, lista_tareas}
 })
 
