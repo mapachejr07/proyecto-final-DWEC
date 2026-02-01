@@ -1,5 +1,4 @@
 <template>
-  <main>
 
     <div id="cuerpo">
       <div id="register" v-if="registrarse">
@@ -7,12 +6,12 @@
 
           <div id="div_inputs">
             <label>Email:</label>
-            <input type="email" v-model="email" placeholder="Dime tu email..." required>
+            <input type="email" v-model="email" placeholder="Agrega tu email" required>
           </div>
 
           <div id="div_inputs">
             <label>Password:</label>
-            <input type="text" v-model="passwd" placeholder="Agrega tu contraseña...." required>
+            <input type="text" v-model="passwd" placeholder="Agrega tu contraseña" required>
           </div>
 
           <div id="div_inputs">
@@ -47,7 +46,6 @@
         </form>
       </div>
     </div>
-  </main>
 </template>
 
 <script setup>
@@ -112,7 +110,7 @@ const registro = async () => {
     console.log(enviar);
     setTimeout(() => {
       registrarse.value = false
-    }, 1500);
+    }, 1000);
   }else{
     toast.error('Algo ha salido mal al registrar')
   }
@@ -137,30 +135,28 @@ const login = async () => {
     })
     setTimeout(() => {
       router.push('/')
-    }, 2000);
+    }, 1500);
   }else{
     toast.error('Algo ha salido mal en el login')
   }
 }
 </script>
 <style scoped lang="sass">
-main
-  min-height: 100vh
-  background: #D4D4D4
-  display: flex
-  justify-content: center
-  align-items: center
-
 #cuerpo
+  width: 100%
+  height: 100%
+  background: #D4D4D4
+  border: solid 1px
   display: flex
   justify-content: center
   align-items: center
-  width: 100%
 
 #register
   width: 360px
   background: #f0f0f0
-  padding: 1.8rem
+  padding: 2rem
+  border: solid 2px
+  margin-bottom: 115px
   border-radius: 14px
   box-shadow: 0 8px 18px rgba(0,0,0,0.25)
 
@@ -174,7 +170,7 @@ main
   flex-direction: column
   gap: 6px
 
-  label, span
+  label
     font-size: 0.9rem
     font-weight: 600
     color: #3a3a3a
@@ -188,10 +184,9 @@ main
     outline: none
     font-size: 0.9rem
     transition: border 0.2s ease, background 0.2s ease
-
     &:focus
       background: #fff
-      border: 1px solid #3a3a3a
+      border: 2px solid #B8F6FF
 
 #div_botones
   display: flex

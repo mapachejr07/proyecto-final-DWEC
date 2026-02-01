@@ -1,12 +1,12 @@
 <template>
   <header>
-    <h1>esto es work space </h1>
+    <h1>WORK SPACE</h1>
   </header>
 
   <section>
-
-    <div id="contenido" v-for="(i,index) in lista_tareas" :key="index">
-
+    <div
+      id="contenido"
+      v-for="(i,index) in lista_tareas" :key="index" :class="{ completada: i.realizada, pendiente: !i.realizada}">
       <div id="datos">
         <span><strong>ID: </strong>{{ i.id }}</span><br>
         <span><strong>Tarea: </strong>{{ i.tarea }}</span>
@@ -14,9 +14,9 @@
         <p v-else>No realizada</p>
       </div>
     </div>
-
   </section>
 </template>
+
 
 
 <script setup>
@@ -81,22 +81,29 @@ section
   gap: 20px
 
 #contenido
-  width: 50%
+  width: 45%
   background: #f0f0f0
-  padding: 1.2rem 1.5rem
-  border-radius: 10px
+  padding: 1rem 1.5rem
+  border-radius: 0px 10px 10px 0px
   box-shadow: 0 6px 14px rgba(0,0,0,0.25)
-  transition: transform 0.2s ease, box-shadow 0.2s ease
+  border-left: 4px solid
+  transition: box-shadow 0.2s ease, border-left-color 0.2s ease
   &:hover
     box-shadow: 0 15px 20px rgba(0,0,0,0.5)
+  &.completada
+    border-left-color: #2ecc71
+  &.pendiente
+    border-left-color: #e74c3c
 
   #datos
     display: flex
     flex-direction: column
     gap: 6px
     color: #3a3a3a
+
     span
       font-size: 1rem
+
     p
       margin: 0
       font-weight: 600

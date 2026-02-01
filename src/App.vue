@@ -22,7 +22,6 @@
 
 <template>
   <main>
-
     <div id="div_cuerpo">
         <router-link class="botones" to="/auth" v-if="!usuariolog">Auth</router-link>
         <router-link class="botones" to="/" v-if="usuariolog">Tasks</router-link>
@@ -52,7 +51,7 @@
   padding: 1%
   justify-content: center
   width: 100%
-  height: 5vw
+  height: 90px
   .botones
     text-align: center
     font-size: 20px
@@ -61,15 +60,15 @@
     font-weight: 500
     color: white
     padding: 10px
-    background: black
+    background: #3a3a3a
     border-radius: 10px
     width: 150px
     height: 50px
     transition: background .3s ease-in-out
     &:hover
       background: transparent
-      border: 3px solid black
-      color: black
+      border: 3px solid #3a3a3a
+      color: #3a3a3a
 
   .boton2
     border: solid red 3px
@@ -83,11 +82,14 @@
     &:hover
       background-color: #F63B3B
       color: #fff
+
 main
-  height: 100%
+  height: 100vh
   display: flex
   flex-direction: column
+
 #completo
   background: #FAFAFA
   flex: 1
+
 </style>

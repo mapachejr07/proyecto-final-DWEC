@@ -1,5 +1,6 @@
 <template>
   <main>
+    
     <header>
       <h1>TASK VIEW</h1>
       <div id="div_filtro">
@@ -12,8 +13,6 @@
       </div>
     </header>
 
-
-
     <div v-if="loading" class="spinner-wrapper">
       <div class="sk-chase">
         <div class="sk-chase-dot"></div>
@@ -24,8 +23,9 @@
         <div class="sk-chase-dot"></div>
       </div>
     </div>
+
     <div v-else id="contenedor">
-      <div id="contenido" v-for="(i, index) in filtro" :key="index">
+      <div id="contenido" v-for="(i, index) in filtro" :key="index" :class="{ completada: i.completed,pendiente: !i.completed}">
         <div id="datos">
           <p>Id: {{ i.id }}</p>
           <p>Tarea: {{ i.todo }}</p>
@@ -109,10 +109,11 @@ header
 
   h1
     margin: 0
-    font-size: 1.6rem
+    font-size: 35px
     color: #3a3a3a
     font-weight: 700
     letter-spacing: 2px
+    border-bottom: solid 4px
   #div_filtro
     select
       background: #3a3a3a
@@ -139,14 +140,25 @@ header
 
   #contenido
     display: flex
+    justify-content: space-between
     align-items: center
+    overflow: hidden
     padding: 1%
     background: #f0f0f0
     box-shadow: 0 6px 14px rgba(0,0,0,0.25)
-    border-radius: 10px
+    border-radius: 0px 10px 10px 0px
+    border-left: 4px solid transparent
     width: 50%
-    flex-direction: row
     gap: 15px
+    transition: box-shadow 0.25s ease, border-left-color 0.25s ease
+    &:hover
+      box-shadow: 10px 15px 20px rgba(0,0,0,0.5)
+
+    &.completada
+      border-left-color: #2ecc71
+
+    &.pendiente
+      border-left-color: #e74c3c
 
     #boton
       display: flex
@@ -165,12 +177,7 @@ header
       transition: all 0.25s ease
 
       &:hover
-        background: #4a4a4a
-
-
-
-
-
+        background: #1F1F1F
 
 
 
