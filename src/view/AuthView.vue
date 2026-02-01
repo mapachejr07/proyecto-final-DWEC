@@ -15,7 +15,7 @@
           </div>
 
           <div id="div_inputs">
-            <label>Confirm Password:</label>
+            <label>Confirmat Password:</label>
             <input type="password" v-model="confirmaPasswd" placeholder="Confirma tu contraseña" required>
           </div>
           <div id="div_botones">
