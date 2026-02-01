@@ -84,7 +84,7 @@
       background-color: #F63B3B
       color: #fff
 main
-  height: 100vh
+  height: 100%
   display: flex
   flex-direction: column
 #completo
