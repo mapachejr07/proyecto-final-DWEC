@@ -1,44 +1,38 @@
-# proyecto-final-DWEC
+# Proyecto Final - DWEC
 
-This template should help get you started developing with Vue 3 in Vite.
+## Descripción
 
-## Recommended IDE Setup
+Aplicación de gestión de tareas desarrollada con Vue 3 y Vite. Usa Firebase (Authentication + Firestore) para autenticar usuarios y almacenar sus tareas de forma centralizada (cada usuario tiene su propio documento con una lista de tasks).
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Tecnologías
 
-## Recommended Browser Setup
+- Vue 3
+- Vite
+- Firebase (Authentication, Firestore)
+- JavaScript
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Ejecutar en local
 
-## Customize configuration
+1. Clona o copia el repositorio.
+2. Instala dependencias:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+3. Configura Firebase: añade tus credenciales en `src/firebase/config.js` (sigue el formato que ya existe en el proyecto).
 
-## Project Setup
+4. Levanta el servidor de desarrollo
 
-```sh
-npm install
-```
+5. Para compilar para producción:
 
-### Compile and Hot-Reload for Development
+Nota: si usas variables de entorno, crea el fichero `.env` según tu flujo y asegúrate de que `src/firebase/config.js` lea dichas variables o incluya la configuración apropiada.
 
-```sh
-npm run dev
-```
+## Enlace de Vercel
 
-### Compile and Minify for Production
+- Enlace de despliegue: proyecto-final-dwec-iota.vercel.app
 
-```sh
-npm run build
-```
+## Estructura de Firestore
 
-### Lint with [ESLint](https://eslint.org/)
+La aplicación utiliza una estructura simple centrada en el usuario:
 
-```sh
-npm run lint
-```
+- Colección: `users`
+- Documento por usuario: el ID del documento es el `uid` del usuario (proporcionado por Firebase Authentication).
+- Dentro del documento de usuario se almacena una lista `tasks` (array) con cada tarea como objeto.
+
